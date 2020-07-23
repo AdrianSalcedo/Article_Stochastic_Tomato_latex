@@ -1,0 +1,202 @@
+\section{Extinction of the disease}
+
+\begin{theorem}\label{theorem_noise}[Extinction by noise]
+	If $\min\{\sigma,\sigma_v\} > max\{,\}$, then the disease will exponientially extinfuish with probability one. that is, for any initial condition $(S_p(0),L_p(0),I_p(0),S_v(0),I_v(0))^T\in \mathbb{R}_+^5$
+	\begin{equation*}
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)< 0\,\, \mbox{and}\,\,\, \limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_v+I_v)< 0\,\,\mbox{a.s.}
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	The main idea is apply the It\^{o} formula to a conveniently function and deduce conditions. Let $V(S_p,L_p,I_p)=\ln(S_p+L_p+I_p)$, then theIt\^{o} formula gives
+	
+		\begin{align*}
+			d \ln(S_p+L_p+I_p) 
+				&=
+					\left(\frac{1}{S_p+L_p+I_p}\right)\left(\frac{\beta_p}{N_v^\infty} S_p I_v-(b+r_1)L_p-\frac{1}{2}\sigma_L^2\frac{L_p^2}{(S_p+L_p+I_p)^2}\right)dt\\
+				&-
+					\sigma_L \frac{L_p}{S_p+L_p+I_p}dB_t\\
+				&\leq 
+					\left(\frac{1}{S_p+L_p+I_p}\right)\left(\beta_p S_p-(b+r_1)-\frac{1}{2}\sigma_L^2\frac{L_p^2}{(S_p+L_p+I_p)^2}\right)dt\\
+				&-
+					\sigma_L \frac{L_p}{S_p+L_p+I_p}dB_t.\\
+		\end{align*}
+	Let $x:=\frac{L_p}{S_p+L_p+I_p}$, then
+	
+	\begin{align*}
+		d \ln(S_p+L_p+I_p) 
+			&\leq 
+				\left(\beta_p\frac{S_p}{S_p+L_p+I_p}-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
+			&\leq
+				\left(\beta_p\frac{N_p}{S_p+L_p+I_p}-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
+			&\leq
+				\left(\beta_px+2\beta_p-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
+			&=
+				\left(-\frac{1}{2}\sigma_L^2x^2+\beta_px+2\beta_p-(b+r_1)\right)dt-\sigma_L xdB_t.			
+	\end{align*}
+	
+	Hence,
+	
+	\begin{align*}
+		\ln(S_p+L_p+I_p)
+			&\leq
+				-\frac{\sigma_L^2}{2}\int_{0}^{t}\left(\left(x-\frac{\beta_p}{\sigma_L^2}\right)^2 +\frac{\beta_p^2}{2\sigma_L^2}+2\beta_p-(b+r_1)\right)du\\
+			&-
+				\int_{0}^{t}\sigma_L xdB_u+\ln(S_p(0)+L_p(0)+I_p(0)),
+	\end{align*}
+	
+	which implies,
+	
+		\begin{align}\label{eq4.1}
+			\frac{1}{t}\ln(S_p+L_p+I_p) 
+				&\leq
+					-\frac{\sigma_L^2}{2t}\int_{0}^{t}\left(x-\frac{\beta_p}{\sigma_L^2}\right)^2du+
+					\frac{\beta_p^2}{2\sigma_L^2}-(b+r_1)+2\beta_p\nonumber\\
+				&-
+					\frac{1}{t}\int_{0}^{t}\sigma_L xdB_u+\frac{1}{t}\ln(S_p(0)+L_p(0)+I_p(0)),
+		\end{align}
+	
+	let $M_t :=\frac{1}{t}\int_{0}^{t}\sigma_L xdB_u+\frac{1}{t}\ln(S_p(0)+L_p(0)+I_p(0))$. Since the integral in the term $M_t$ is a martingale, the strong law of large numbers for martingales Mao, implies that 
+	
+	\begin{equation*}
+		\lim\limits_{t \rightarrow \infty}M_t = 0\,\,\mbox{a.s.}
+	\end{equation*}
+	
+	Thus, from relation (\ref{eq4.1}) we obtain
+	
+	\begin{align}\label{eq4.2}
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)<\frac{\beta_p^2}{2\sigma_L^2}+	2\beta_p-(b+r_1)
+	\end{align}
+	
+	A similar argument also shows that
+	
+	\begin{align}\label{eq4.3}
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)<\frac{r_2^2}{2\sigma_I^2}+b
+	\end{align}
+	
+	Through the ecuaciones (\ref{eq4.2}) and (\ref{eq4.3}), we obtain
+	
+	\begin{align*}
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)<\frac{\beta_p^2}{2\sigma_L^2}+	2\beta_p-(b+r_1)+\frac{r_2^2}{2\sigma_I^2}+b
+	\end{align*}
+	
+	and 
+	
+	\begin{align*}
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_v+I_v)<\frac{\beta_v^2}{2\sigma_v^2}+\beta_v-\gamma+\theta\mu
+	\end{align*}
+\end{proof}
+
+
+
+Our analysis needs the following function and conditions.
+
+\begin{equation}\label{eq4}
+V(S_p,L_p,I_p,S_v,I_v) = \left(S_p-S_p^0-S_p^0\ln\left(\frac{S_p}{S_p^0}\right)\right)+L_p+I_p+\frac{\beta_p N_p}{\gamma N_v}I_v
+\end{equation}
+
+We consider in the system (\ref{system_3}) that $r=r_1=r_2$ and $\sigma=\sigma_L=\sigma_I$. These conditions provided us with the necessary factors for the construction of the following stochastic basic reproductive number. (posiblemente umbral), 
+
+\begin{equation}\label{eq5}
+	\mathcal{R}_0^s=\frac{\beta_p\beta_v}{\gamma r}
+\end{equation}
+
+\begin{theorem}\label{theorem_2}
+	Let $(S_p(t),L_p(t),I_p(t),I_v(t))$ be the solution of (\ref{system_3}) with initial values $(S_p(0),L_p(0),I_p(0),I_v(0))\in (0,N_p)\times(0,N_p)\times(0,N_p)\\\times(0,N_v)$. If $\mathcal{R}^s_0<1$, then the following conditions holds
+
+	\begin{align*}
+		\lim\limits_{t\rightarrow \infty}\frac{1}{t}\mathbb{E}\int_{0}^{t}\left[{r[\mathcal{R}^s_0-1]I_p-rS_p\left(1-\frac{S^0_p}{S_p}\right)^2-rL_p-\frac{\beta_p\beta_v}{\gamma}I_vI_p}\right]dr\leq \frac{1}{2}\sigma^2N_p,\, a.s.,
+	\end{align*}
+	namely, the infected individual tends to zero exponentially a.s, i.e the disease will die out with probability one.
+\end{theorem}
+
+\begin{proof}
+	The main idea is to propose a Lyapunov function $V :\mathbb{R}^4\rightarrow \mathbb{R}_+$ defined as
+	
+	\begin{align*}
+		V(S_p,L_p,I_p,I_v) &= 
+			\left(S_p-S_p^0-S_p^0\ln\frac{S_p}{S_p^0}\right)+L_p+I_p+\frac{\beta_p N_p}{\gamma N^\infty_v}I_v,
+	\end{align*}
+	
+	and to verify the hypotheses of Khasminskii Theorem. To apply It\^{o} formula we proceed as
+	
+	\begin{align*}
+		V_x f &=
+				\left(1-\frac{S_p^0}{S_p}\right)\left(-\frac{\beta_p}{N^\infty_v}S_pI_v+ rN_p-r S_p\right)+\frac{\beta_p}{N^\infty_v}S_pI_v-(b+r)L_p\\
+			  &+
+				bL_p-rI_p+\frac{\beta_p N_p}{\gamma N^\infty_v}\left(\frac{\beta_v N_v}{N_p}I_p-\frac{\beta_v}{N_v^\infty}I_vI_p-\gamma I_v\right)\\
+			  &=
+			  	-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2-\frac{\beta_p}{N_v^\infty}S_pI_v+\frac{\beta_p}{N_v^\infty}I_vS_p^0+\frac{\beta_p}{N_v^\infty}S_pI_v-r(L_p+I_p)\\
+			  &+
+			  	\frac{\beta_p N_p}{\gamma N^\infty_v}\left(\frac{\beta_v N_v}{N_p}I_p-\frac{\beta_v}{N_v^\infty}I_vI_p-\gamma I_v\right)\\
+			  &=
+			  	-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2+\frac{\beta_p}{N_v^\infty}I_vS_p^0-r(L_p+I_p)+\frac{\beta_p N_p}{\gamma N^\infty_v}\frac{\beta_v N_v}{N_p}I_p\\
+			  &-	
+			  	\frac{\beta_p N_p}{\gamma N^\infty_v}\frac{\beta_v}{N_v^\infty}I_vI_p-\frac{\beta_p N_p}{\gamma N^\infty_v}\gamma I_v\\
+	\end{align*}
+	
+	Then,
+	
+	\begin{align*}
+		V_x f &=
+				-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2-\left[\frac{\beta_p N_p}{\gamma N^\infty_v}\gamma-\frac{\beta_p N_p}{N_v^\infty}\right]I_v+\left[\frac{\beta_p N_p}{\gamma N^\infty_v}\beta_v\frac{N_v^\infty}{N_p}-r\right]I_p\\
+		 	  &-
+				rL_p-\frac{\beta_p N_p}{\gamma N^\infty_v}\frac{\beta_v}{N_p}I_vI_p\\
+			  &=
+			  	-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + \left[\frac{\beta_p N_p}{\gamma N^\infty_v}\beta_v\frac{N_v^\infty}{N_p}-r\right]I_p-rL_p-\frac{\beta_p N_p}{\gamma N^\infty_v}\frac{\beta_v}{N_p}I_vI_p\\
+			  &=
+			  	-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + r\left[\frac{\beta_p\beta_v}{\gamma r}-1\right]I_p-rL_p-\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p.
+	\end{align*}
+	
+	Expressing the right hand side of above equation in term of the basic reproductive number, $\mathcal{R}^s_0$ we get
+	
+	\begin{align*}
+		V_x f &=
+		-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + r\left[\mathcal{R}^s_0-1\right]I_p-rL_p-\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p.
+	\end{align*}
+
+	Moreover,
+	
+	\begin{align*}
+		\frac{1}{2}trace(g^TV_{xx}g) 
+			&=
+				\frac{1}{2} \sigma^2N_p\left(\frac{N_p-S_p}{S_p}\right)^2\\
+			&\leq
+				\frac{1}{2} \sigma^2 N_p.
+	\end{align*}
+	The stochastic terms are not neccesary, because they do a martingale procces and therefore, when we use integral and expectation they vanising.
+	
+	Incorporation all terms calculate above, we obtain
+	
+		
+	\begin{align*}
+		dV(X) 
+			&=
+				-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + r\left[\mathcal{R}^s_0-1\right]I_p-rL_p-\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p+\frac{1}{2} \sigma^2N_p\left(\frac{N_p-S_p}{S_p}\right)^2\\
+			&\leq
+				-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + r\left[\mathcal{R}^s_0-1\right]I_p-rL_p-\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p+\frac{1}{2} \sigma^2 N_p.
+	\end{align*}
+	Define $LV(X)$ as
+	\begin{align*}
+		LV(X) 
+			&=
+				-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + r\left[\mathcal{R}^s_0-1\right]I_p-rL_p-\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p+\frac{1}{2} \sigma^2 N_p.
+	\end{align*}
+	
+	Using It\^{o}'s formula and integrating $dV$ from $0$ to $t$ as well as taking expectation yield the following
+	
+	\begin{align*}
+		0 
+			&\leq
+				\mathbb{E}V(t)-\mathbb{E}V(0)\leq\mathbb{E}\int_{0}^{t}LV(X(s))ds\\
+			&\leq
+				-\mathbb{E}\int_{0}^{t}\left[rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 - r\left[\mathcal{R}^s_0-1\right]I_p+rL_p+\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p\right]ds+ \frac{1}{2}\sigma^2 N_p
+	\end{align*}
+	
+	Therefore,
+	
+	\begin{align*}
+	\lim\limits_{t\rightarrow \infty}\frac{1}{t} 
+	\mathbb{E}\int_{0}^{t}\left[-rS_p\left(1-\frac{S_p^0}{S_p}\right)^2 + r\left[\mathcal{R}^s_0-1\right]I_p-rL_p-\frac{\beta_p\beta_v}{\gamma N^\infty_v}I_vI_p\right]ds\leq \frac{1}{2}\sigma^2 N_p.
+	\end{align*}
+		
+\end{proof}

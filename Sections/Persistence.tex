@@ -1,0 +1,140 @@
+\section{Persistence}
+
+\begin{theorem}\label{theorem_3}
+	Let $(S_p(t),L_p(t),I_p(t),I_v(t))$ be the solution of (\ref{system_3}) with initial values $(S_p(0),L_p(0),I_p(0),I_v(0))\in (0,N_p)\times(0,N_p)\times(0,N_p)\times(0,N_v)$. If $\mathcal{R}^s_0>1$, then the system (\ref{system_3}) is globally asymptotically stable at endemic equilibrium point if
+	
+	\begin{align*}
+		\lim\limits_{t\rightarrow \infty}\frac{1}{t}\mathbb{E}\int_{0}^{t}\left[\frac{rS_p^*}{S_pS_p^*}(S_p^*-S_p)^2+\frac{\beta_p}{N_v}S_p^*I_v^*A_1+\frac{\beta_v}{N_p}\frac{I_p}{I_v}(I_v-I_v^*)^2+\gamma I_v^*A_2\right]dr\leq A_3.
+	\end{align*}
+	
+	namely, the disease will persist with probability one.
+\end{theorem}
+\begin{proof}
+	Let us define the following Lyapunov function $V:\mathbb{R}^4_+\rightarrow \mathbb{R}_+$
+	
+	\begin{align*}
+		V(S_p,L_P,I_p,I_v) 
+				&= 
+					(S_p+L_p+I_p+I_v)-(S^*_p+L^*_p+I^*_p+I^*_v)\\
+				&-
+					\left(S^*_p\ln\frac{S_p}{S^*_p}+L^*_p\ln\frac{L_p}{L^*_p}+I^*_p\ln\frac{I_p}{I^*_p}+I^*_v\ln\frac{I_v}{I^*_v}\right).
+	\end{align*}
+	
+	Computing the It\^{o} formula terms as:
+	
+	\begin{align*}
+		V_xf &=
+			\left(1-\frac{S^*_p}{S_p}\right)\left(rN_p-\beta_pS_p\frac{I_v}{N^\infty_v}-rS_p\right)+\left(1-\frac{L^*_p}{L_p}\right)\left(\beta_pS_p\frac{I_v}{N^\infty_v}-(r+b)L_p\right)\\
+			&+ \left(1-\frac{I^*_p}{I_p}\right)\left(bL_p-rI_p\right)+ \left(1-\frac{I^*_v}{I_v}\right)\left(\beta_v N_v\frac{I_p}{N_p}-\beta_v \frac{I_p}{N_p}I_v-\gamma I_v\right).
+	\end{align*}
+	
+	The system (\ref{system_3}) satisfy the following relations at equilibrium point
+	
+	\begin{align*}
+		rN_p&=
+			\beta_pS^*_p\frac{I^*_v}{N^\infty_v}+rS^*_p\\
+		(r+b)&=
+			\beta_pS^*_p\frac{I^*_v}{L^*_p N^\infty_v}\\
+		r &=
+			b\frac{L^*_p}{I^*_p}\\
+		\beta_v\frac{N_v}{N_p}&=
+			\frac{\beta_v}{N_p}I^*_v+\gamma \frac{I^*_v}{I^*_p}		
+	\end{align*}
+	
+	Moreover,
+	
+		\begin{align*}
+			V_xf &=
+					\left(1-\frac{S^*_p}{S_p}\right)\left(\beta_pS^*_p\frac{I^*_v}{N^\infty_v}+rS^*_p-\beta_pS_p\frac{I_v}{N^\infty_v}-rS_p\right)\\
+				 &+
+					\left(1-\frac{L^*_p}{L_p}\right)\left(\beta_pS_p\frac{I_v}{N^\infty_v}-\beta_pS^*_p\frac{I^*_v}{L^*_p N^\infty_v}L_p\right)+\left(1-\frac{I^*_p}{I_p}\right)\left(bL_p-b\frac{L^*_p}{I^*_p}I_p\right)\\
+				&+
+					\left(1-\frac{I^*_v}{I_v}\right)\left(\frac{\beta_v}{N_p}I^*_vI_p+\gamma \frac{I^*_v}{I^*_p}I_p-\beta_v \frac{I_p}{N_p}I_v-\gamma I_v\right)\\
+				&=
+					rS^*_p\left(1-\frac{S^*_p}{S_p}\right)\left(1-\frac{S_p}{S^*_p}\right)+\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(1-\frac{S^*_p}{S_p}\right)\left(1-\frac{S_pI_v}{S^*_pI_v^*}\right)\\
+				&+
+					\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(1-\frac{L^*_p}{L_p}\right)\left(\frac{S_pI_v}{S^*_pI_v^*}-\frac{L_p}{L^*_p}\right)+bL^*_p\left(1-\frac{I^*_p}{I_p}\right)\left(\frac{L_p}{L_p^*}-\frac{I_p}{I_p^*}\right)\\
+				&+ \left(1-\frac{I^*_v}{I_v}\right)\left(-\frac{\beta_v}{N_p}I_vI_p\left(1-\frac{I^*_v}{I_v}\right)+\gamma I_v^*\left(\frac{I_p}{I_p^*}-\frac{I_v}{I_v^*}\right)\right)\\
+				&=
+					rS_p^*\left(2-\frac{S_p}{S_p^*}-\frac{S_p^*}{S_p}\right)+\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(1-\frac{I_v}{I_v^*}\left(\frac{S_p}{S_p^*}-1\right)-\frac{S_p^*}{S_p}\right)\\
+				&+
+					\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(\frac{S_pI_v}{S_p^*I_v^*}\left(1-\frac{L_p^*}{L_p}\right)-\frac{L_p}{L_p^*}\left(1-\frac{L_p^*}{L_p}\right)\right)+bL_p^*\left(1+\frac{L_p}{L_p^*}-\frac{I_p}{I_p^*}-\frac{I_p^*L_p}{I_pL_p^*}\right)\\
+				&-
+					\frac{\beta_v}{N_v}I_vI_p\left(1-\frac{I_v^*}{I_v}\right)^2+\gamma I_v^*\left(\frac{I_p}{I_p^*}-\frac{I_v^*I_p}{I_vI_p^*}-\frac{I_v}{I_v^*}+1\right)\\
+				&=
+					rS_p^*\left(2-\frac{S_p}{S_p^*}-\frac{S_p^*}{S_p}\right)+\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(1-\frac{S_p^*}{S_p}-\frac{I_v}{I_v^*}\left(\frac{S_p}{S_p^*}-1\right)\right)\\
+				&+
+					\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(1-\frac{L_p}{L_p^*}-\frac{S_pI_v}{S_p^*I_v^*}\left(\frac{L_p^*}{L_p}-1\right)\right)+
+					bL_p^*\left(1-\frac{I_p}{I_p^*}+\frac{L_p}{L_p^*}\left(1-\frac{I_p^*}{I_p}\right)\right)\\
+				&-
+					\frac{\beta_v}{N^\infty_v}I_vI_p\left(1-\frac{I_v^*}{I_v}\right)^2+\gamma I_v^*\left(1-\frac{I_v}{I_v^*}-\frac{I_p}{I_p^*}\left(\frac{I_v^*}{I_v}-1\right)\right).\\
+	\end{align*}
+Then
+	\begin{align*}
+		V_xf  	&=
+					rS_p^*\left(2-\frac{S_p}{S_p^*}-\frac{S_p^*}{S_p}\right)+\frac{\beta_p}{N^\infty_v}S_p^*I_v^*\left(2-\frac{S_p^*}{S_p}-\frac{L_p}{L_p^*}-\frac{I_v}{I_v^*}\left(\frac{S_pL_p^*}{S_p^*L_p}-1\right)\right)\\
+	  		  	&+
+	  		  		bL_p^*\left(1-\frac{I_p}{I_p^*}+\frac{L_p}{L_p^*}\left(1-\frac{I_p^*}{I_p}\right)\right)-\frac{\beta_v}{N_p}I_vI_p\left(1-\frac{I_v^*}{I_v}\right)^2\\
+	  		  	&+ 
+	  		  		\gamma I_v^* \left(1-\frac{I_v}{I_v^*}-\frac{I_p}{I_p^*}\left(\frac{I_v^*}{I_v}-1\right)\right).		
+	\end{align*}
+	Now we need compute the term $g^TV_{xx}g$, 
+	
+	
+	\begin{align*}
+		g^TV_{xx}g=\begin{bmatrix}
+		\sigma^2 \left(\frac{N_p-S_p}{S_p}\right)^2 S^*_p+\sigma^2 L^*_p &0\\
+		0 & I^*_p \sigma^2+I^*_v \sigma_v^2
+		\end{bmatrix}
+	\end{align*}
+	therefore,
+		\begin{align*}
+	\frac{1}{2}trace(g^TV_{xx}g) &=
+		\frac{1}{2}\left(\sigma^2\left(\frac{N_p-S_p}{S_p}\right)^2S^*_p +\sigma^2L^*_p+\sigma^2I^*_p+\sigma_v^2I^*_v\right)\\
+		&\leq
+		\frac{1}{2}\left(\sigma^2S^*_p +\sigma^2L^*_p+\sigma^2I^*_p+\sigma_v^2I^*_v\right)
+	\end{align*}
+	
+	The stochastics terms are not neccesary, because the are a martingale and therefore, when we use integrating and expectation they vanishing, obtaining the following $LV(X)$ operator
+	
+	\begin{align*}
+		LV(X) &=
+			-rS_p^*\frac{\left(S_p^*-S_p\right)^2}{S_pS_p^*}-\frac{\beta_p}{N^\infty_v}S_p^*I_v^*A_1-bL_p^*A_2-\frac{\beta_v}{N_p}I_vI_p\left(1-\frac{I_v^*}{I_v}\right)^2\\
+			&- 
+			\gamma I_v^* A_3+A_4.	
+	\end{align*}
+	
+	where
+	
+	\begin{align*}
+		A_1 &=
+			\left(\frac{S_p^*}{S_p}+\frac{L_p}{L_p^*}+\frac{I_v}{I_v^*}\left(\frac{S_pL_p^*}{S_p^*L_p}-1\right)-2\right)>0,
+		\\
+		A_2 &=
+			\left(\frac{I_p}{I_p^*}-\frac{L_p}{L_p^*}\left(1-\frac{I_p^*}{I_p}\right)-1\right)>0,
+		\\
+		A_3 &= 
+			\left(\frac{I_v}{I_v^*}+\frac{I_p}{I_p^*}\left(\frac{I_v^*}{I_v}-1\right)-1\right)>0,
+		\\
+		A_4 &=
+			\frac{1}{2}\left(\sigma^2S^*_p +\sigma^2L^*_p+\sigma^2I^*_p+\sigma_v^2I^*_v\right)>0.
+	\end{align*}
+	
+	Applying It\^{o} formula, integrating $dV$ from $0$ to $t$ and taking expectation gives the following
+	
+	\begin{align*}
+		0&
+			\leq \mathbb{E}V(t)-\mathbb{E}V(0)=\mathbb{E}\int_{0}^{t}LV(s)ds\\
+		&-\mathbb{E}\int_{0}^{t}\left(rS_p^*\frac{\left(S_p^*-S_p\right)^2}{S_pS_p^*}+\frac{\beta_p}{N^\infty_v}S_p^*I_v^*A_1+bL_p^*A_2+\frac{\beta_v}{N_p}I_vI_p\left(1-\frac{I_v^*}{I_v}\right)^2+\gamma I_v^* A_3\right)ds\\
+		&+
+			A_4t.\\
+	\end{align*}
+	
+	Therefore,
+	
+	\begin{align*}
+	\lim\limits_{t\rightarrow \infty}&\frac{1}{t}\mathbb{E}\int_{0}^{t}\left(rS_p^*\frac{\left(S_p^*-S_p\right)^2}{S_pS_p^*}+\frac{\beta_p}{N^\infty_v}S_p^*I_v^*A_1+bL_p^*A_2+\frac{\beta_v}{N_p}I_vI_p\left(1-\frac{I_v^*}{I_v}\right)^2+\gamma I_v^* A_3\right)ds\\
+	&\leq
+	A_4.
+	\end{align*}
+\end{proof}
