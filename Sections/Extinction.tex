@@ -1,33 +1,33 @@
 \section{Extinction of the disease}
 
 \begin{theorem}\label{theorem_noise}[Extinction by noise]
-	If $\min\{\sigma,\sigma_v\} > max\{,\}$, then the disease will exponientially extinfuish with probability one. that is, for any initial condition $(S_p(0),L_p(0),I_p(0),S_v(0),I_v(0))^T\in \mathbb{R}_+^5$
+	If $\min\{\sigma,\sigma_v\} > max\{,\}$, then the disease will exponientially extinguish with probability one. that is, for any initial condition $(S_p(0),L_p(0),I_p(0),S_v(0),I_v(0))^T\in \mathbb{R}_+^5$
 	\begin{equation*}
-		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)< 0\,\, \mbox{and}\,\,\, \limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_v+I_v)< 0\,\,\mbox{a.s.}
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(L_p+I_p)< 0\,\, \mbox{and}\,\,\, \limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(I_v)< 0\,\,\mbox{a.s.}
 	\end{equation*}
 \end{theorem}
 \begin{proof}
-	The main idea is apply the It\^{o} formula to a conveniently function and deduce conditions. Let $V(S_p,L_p,I_p)=\ln(S_p+L_p+I_p)$, then theIt\^{o} formula gives
+	The main idea is apply the It\^{o} formula to a conveniently function and deduce conditions. Let $V(S_p,L_p,I_p)=\ln(L_p+I_p)$, then theIt\^{o} formula gives
 	
 		\begin{align*}
-			d \ln(S_p+L_p+I_p) 
+			d \ln(L_p+I_p) 
 				&=
-					\left(\frac{1}{S_p+L_p+I_p}\right)\left(\frac{\beta_p}{N_v^\infty} S_p I_v-(b+r_1)L_p-\frac{1}{2}\sigma_L^2\frac{L_p^2}{(S_p+L_p+I_p)^2}\right)dt\\
+					\left(\frac{1}{L_p+I_p}\right)\left(\frac{\beta_p}{N_v^\infty} S_p I_v-(b+r_1)L_p-\frac{1}{2}\sigma_L^2\frac{L_p^2}{(L_p+I_p)^2}\right)dt\\
 				&-
-					\sigma_L \frac{L_p}{S_p+L_p+I_p}dB_t\\
+					\sigma_L \frac{L_p}{L_p+I_p}dB_t\\
 				&\leq 
-					\left(\frac{1}{S_p+L_p+I_p}\right)\left(\beta_p S_p-(b+r_1)-\frac{1}{2}\sigma_L^2\frac{L_p^2}{(S_p+L_p+I_p)^2}\right)dt\\
+					\left(\frac{1}{L_p+I_p}\right)\left(\beta_p S_p-(b+r_1)-\frac{1}{2}\sigma_L^2\frac{L_p^2}{(L_p+I_p)^2}\right)dt\\
 				&-
-					\sigma_L \frac{L_p}{S_p+L_p+I_p}dB_t.\\
+					\sigma_L \frac{L_p}{L_p+I_p}dB_t.\\
 		\end{align*}
-	Let $x:=\frac{L_p}{S_p+L_p+I_p}$, then
+	Let $x:=\frac{L_p}{L_p+I_p}$, then
 	
 	\begin{align*}
-		d \ln(S_p+L_p+I_p) 
+		d \ln(L_p+I_p) 
 			&\leq 
-				\left(\beta_p\frac{S_p}{S_p+L_p+I_p}-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
+				\left(\beta_p\frac{S_p}{L_p+I_p}-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
 			&\leq
-				\left(\beta_p\frac{N_p}{S_p+L_p+I_p}-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
+				\left(\beta_p\frac{N_p}{L_p+I_p}-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
 			&\leq
 				\left(\beta_px+2\beta_p-(b+r_1)-\frac{1}{2}\sigma_L^2x^2\right)dt-\sigma_L xdB_t\\
 			&=
@@ -37,17 +37,17 @@
 	Hence,
 	
 	\begin{align*}
-		\ln(S_p+L_p+I_p)
+		\ln(L_p+I_p)
 			&\leq
 				-\frac{\sigma_L^2}{2}\int_{0}^{t}\left(\left(x-\frac{\beta_p}{\sigma_L^2}\right)^2 +\frac{\beta_p^2}{2\sigma_L^2}+2\beta_p-(b+r_1)\right)du\\
 			&-
-				\int_{0}^{t}\sigma_L xdB_u+\ln(S_p(0)+L_p(0)+I_p(0)),
+				\int_{0}^{t}\sigma_L xdB_u+\ln(L_p(0)+I_p(0)),
 	\end{align*}
 	
 	which implies,
 	
 		\begin{align}\label{eq4.1}
-			\frac{1}{t}\ln(S_p+L_p+I_p) 
+			\frac{1}{t}\ln(L_p+I_p) 
 				&\leq
 					-\frac{\sigma_L^2}{2t}\int_{0}^{t}\left(x-\frac{\beta_p}{\sigma_L^2}\right)^2du+
 					\frac{\beta_p^2}{2\sigma_L^2}-(b+r_1)+2\beta_p\nonumber\\
@@ -55,7 +55,7 @@
 					\frac{1}{t}\int_{0}^{t}\sigma_L xdB_u+\frac{1}{t}\ln(S_p(0)+L_p(0)+I_p(0)),
 		\end{align}
 	
-	let $M_t :=\frac{1}{t}\int_{0}^{t}\sigma_L xdB_u+\frac{1}{t}\ln(S_p(0)+L_p(0)+I_p(0))$. Since the integral in the term $M_t$ is a martingale, the strong law of large numbers for martingales Mao, implies that 
+	let $M_t :=\frac{1}{t}\int_{0}^{t}\sigma_L xdB_u+\frac{1}{t}\ln(L_p(0)+I_p(0))$. Since the integral in the term $M_t$ is a martingale, the strong law of large numbers for martingales Mao, implies that 
 	
 	\begin{equation*}
 		\lim\limits_{t \rightarrow \infty}M_t = 0\,\,\mbox{a.s.}
@@ -64,25 +64,25 @@
 	Thus, from relation (\ref{eq4.1}) we obtain
 	
 	\begin{align}\label{eq4.2}
-		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)<\frac{\beta_p^2}{2\sigma_L^2}+	2\beta_p-(b+r_1)
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(L_p+I_p)<\frac{\beta_p^2}{2\sigma_L^2}+	2\beta_p-(b+r_1)
 	\end{align}
 	
 	A similar argument also shows that
 	
 	\begin{align}\label{eq4.3}
-		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)<\frac{r_2^2}{2\sigma_I^2}+b
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(L_p+I_p)<\frac{r_2^2}{2\sigma_I^2}+b
 	\end{align}
 	
 	Through the ecuaciones (\ref{eq4.2}) and (\ref{eq4.3}), we obtain
 	
 	\begin{align*}
-		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_p+L_p+I_p)<\frac{\beta_p^2}{2\sigma_L^2}+	2\beta_p-(b+r_1)+\frac{r_2^2}{2\sigma_I^2}+b
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(L_p+I_p)<\frac{\beta_p^2}{2\sigma_L^2}+\frac{r_2^2}{2\sigma_I^2}+	2\beta_p-r_1
 	\end{align*}
 	
 	and 
 	
 	\begin{align*}
-		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(S_v+I_v)<\frac{\beta_v^2}{2\sigma_v^2}+\beta_v-\gamma+\theta\mu
+		\limsup_{t\infty \rightarrow \infty}\frac{1}{t}\ln(I_v)<\frac{\beta_v^2}{2\sigma_v^2}+\beta_v-\gamma+\theta\mu
 	\end{align*}
 \end{proof}
 

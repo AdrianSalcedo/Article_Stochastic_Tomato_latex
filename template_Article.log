@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.30)  16 JUL 2020 08:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.30)  2 AUG 2020 14:15
 entering extended mode
 **./template_Article.tex
 (template_Article.tex
@@ -182,12 +182,7 @@ mr/m/n/10 (\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/
 ] 
  []
 
-) (Sections/Extinction.tex [3]
-Overfull \hbox (46.179pt too wide) detected at line 22
-[]
- []
-
-[4]
+) (Sections/Extinction.tex [3] [4]
 Overfull \hbox (11.94188pt too wide) detected at line 108
 []
  []
@@ -202,12 +197,12 @@ Overfull \hbox (3.9551pt too wide) detected at line 200
 []
  []
 
-) (Sections/Persistence.tex [7]
+) (Sections/Persistence.tex
 Overfull \hbox (10.30559pt too wide) detected at line 8
 []
  []
 
-
+[7]
 Overfull \hbox (13.8214pt too wide) detected at line 29
 []
  []
@@ -231,7 +226,7 @@ Overfull \hbox (39.36316pt too wide) detected at line 139
 Here is how much of TeX's memory you used:
  2396 strings out of 480795
  30753 string characters out of 2905357
- 286198 words of memory out of 3000000
+ 285198 words of memory out of 3000000
  18388 multiletter control sequences out of 15000+200000
  540847 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -250,7 +245,7 @@ fonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on template_Article.pdf (11 pages, 205383 bytes).
+Output written on template_Article.pdf (11 pages, 205189 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
