@@ -1,11 +1,189 @@
 \section{Existence of unique positive solution}
+Thereom *.* of [Mao Book] assures ths existence of unique solution of \eqref{system_3} 
+in a compact interval. Since we study asymptotic behaviour, we have to assure the existence of 
+unique positive invariant solution to SDE \eqref{system_3}. To this end, let $\R^n_+$ the first octant of $\R ^ n$ and consider  
+$$	{
+	\mathbf{E}:= 
+	\left \{ 
+	(S_p, L_p, I_p, S_v, I_v)^{\top} \in \R^5_+: \quad
+	0 \leq S_p + L_p + I_p \leq N_p, \quad
+	S_v + I_v \leq \frac{\mu}{\gamma}
+	\right \},
+}
+$$
+the following result prove that this set is positive invariant.
 
 \begin{theorem}\label{existence-unique}
-	For any initial values $(L_p(0),I_p(0),S_v(0),I_v(0))\in (0,N_p)\times(0,N_p)\\\times(0,N_v)\times(0,N_v)$, the SDE (\ref{system_3}) has a unique global positive solution $(L_p(t),I_p(t)\\,S_v(t),I_v(t))\in (0,N_p)\times(0,N_p)\times(0,N_v)\times(0,N_v)$ for all $t \geq 0$ with probability one, namely,
-	\begin{align*}
-		\mathbb{P}[(L_p(t),I_p(t),S_v(t),I_v(t))\in (0,N_p)\times(0,N_p)\times(0,N_v)\times(0,N_v)\,\,\forall t\geq 0]=1.
-	\end{align*}
+	For any initial values 
+	$
+	(S_p(0), L_p(0), I_p(0), S_v(0), I_v(0)) 
+	\in \mathbf{E}
+	$, 
+	exists unique invariant global positive solution to SDE \eqref{system_3}
+	$
+	(S_p(t), L_p(t), I_p(t) ,S_v(t), I_v(t)) ^{\top}
+	$ with probability one, that is,
+	\begin{equation*}
+	\probX{
+		(L_p(t), I_p(t), S_v(t), I_v(t)) 
+		\in 
+		\mathbf{E}, \quad
+		\forall t \geq 0
+	} = 1.
+	\end{equation*}
 \end{theorem}
+
+%\begin{theorem}\label{existence-unique}
+%	For any initial values $(L_p(0),I_p(0),S_v(0),I_v(0))\in (0,N_p)\times(0,N_p)\\\times(0,N_v)\times(0,N_v)$, the SDE (\ref{system_3}) has a unique global positive solution $(L_p(t),I_p(t)\\,S_v(t),I_v(t))\in (0,N_p)\times(0,N_p)\times(0,N_v)\times(0,N_v)$ for all $t \geq 0$ with probability one, namely,
+%	\begin{align*}
+%		\mathbb{P}[(L_p(t),I_p(t),S_v(t),I_v(t))\in (0,N_p)\times(0,N_p)\times(0,N_v)\times(0,N_v)\,\,\forall t\geq 0]=1.
+%	\end{align*}
+%\end{theorem}
 \begin{proof}
+	Since the system (\ref{system_3}) are $\mathbb{R}$, its coefficients are locally Lipschitz. We know [Mao Ref.] That for any initial condition $ (S_{p_0}, S_{v_0}) \in (0, N_p) \times (0, N_v) $ there is a unique maximal local solution $ (L_p (t), I_p (t) , I_v (t)) $ at $ t \in [0, \tau_e) $, where $ \tau_e $ is the explosion time. Let $k_0>0$ be sufficiently large for $\frac{1}{k_0}<L_{p_0}<N_p-\frac{1}{k_0}$, $\frac{1}{k_0}<I_{p_0}<N_p-\frac{1}{k_0}$, and $\frac{1}{k_0}<I_{v_0}<N_v-\frac{1}{k_0}$. For each integer $k\geq k_0$, define the stopping time
 	
+	\begin{equation*}
+		\tau_k =\inf\left\{t\in [0,\tau_e): (L_p(t),I_p(t),I_v(t))\notin D_{k_0}\right\},
+	\end{equation*}
+	
+	where $D_{k_0} :=\left(\frac{1}{k_0},N_p-\frac{1}{k_0}\right)\times\left(\frac{1}{k_0},N_p-\frac{1}{k_0}\right)\times\left(\frac{1}{k_0},N_v-\frac{1}{k_0}\right)$, and we set $\inf \emptyset=\infty$. Clearly, $\tau_k$ is increasing as $k\rightarrow \infty$. Set $\tau_\infty = \lim\limits_{k\rightarrow \infty}\tau_k$, whence $\tau_\infty\leq \tau_e$ a.s. If we can show that $\tau_\infty = \infty$ a.s., then $\tau_e = \infty$ a.s. and $(L_p(t),I_p(t),I_v(t))\in (0,N_p)\times(0,N_p)\times(0,N_v)$ a.s. for all $t\geq 0$. In other words, to complete the proof all wee need to show is that $\tau_\infty=\infty$ a.s.Suppose the above statement is false, then there is a pair of constants $T>0$ and $\epsilon  \in (0,1)$ such that
+	
+	\begin{equation*}
+		\P[\tau_\infty\leq T]>\epsilon.
+	\end{equation*}
+	
+	Hence there is an integer $k_1\geq k_0$ such that
+	
+	\begin{equation}\label{Positive1}
+		\P[\tau_k\leq T]>\epsilon.\,\,\forall k\geq k_1.
+	\end{equation}
+	
+	Define a function $V:(0,N)\rightarrow \mathbb{R}_+$ by
+	
+	\begin{equation*}
+		V(x) := \frac{1}{x}+ \frac{1}{N-x},
+	\end{equation*}
+	
+	where $N,x$ can be $N_p,N_v$ and $L_p,I_p,I_v$, respectively. By It\^{o} formula, we have, for any $t\in[0,T]$ and $k\geq k_1$
+	
+	\begin{equation}\label{Positive2}
+		\E V(L_p(t\wedge\tau_k)) = V(L_{p_0})+ \E \int_{0}^{t\wedge \tau_k} LV(L_p(s))ds,
+	\end{equation}
+	
+	where $LV:(0,N_p)\rightarrow \R$ is defined by 
+	
+	\begin{equation*}
+		LV(L_p) = \left[-\frac{1}{L_p^2}+\frac{1}{(N-L_p)^2}\right]\left[\beta_pS_p\frac{I_v}{N_v}-(b+r_1)L_p\right]+\frac{1}{2}\left[\frac{2}{L_p^3}+\frac{1}{(N-L_p)^3}\right]\sigma_L L_p^2.
+	\end{equation*}
+	
+	It's not hard to see that
+	
+	\begin{equation*}
+		LV(L_p) \leq \frac{\beta_p N_p}{N_p-L_p}+\frac{b+r_1}{L_p}+\sigma_L^2\left[\frac{1}{x}+\frac{1}{N_p-L_p}\right]\leq C_1 V(L_p),
+	\end{equation*}
+	
+	where $C_1 = (\beta_p N_p)\vee (b+r_1)+\sigma_L^2$. Sustituting this into (\ref{Positive2}), we get 
+	
+	\begin{align*}
+		\E V(L_p(t\wedge\tau_k)) 
+			&\leq 
+				V(L_{p_0})+ \E \int_{0}^{t\wedge \tau_k} C_1V(L_p(s))ds\\
+			&\leq 
+				V(L_{p_0})+C_1\int_{0}^{t}\E V(L_p(s\wedge \tau_k))ds.
+	\end{align*}
+	
+	The Gronwall inequality yields that
+	
+	\begin{equation}\label{Positive3}
+		\E V(L_p(T\wedge \tau_k))\leq V(L_{p_0})e^{C_1 T}
+	\end{equation}
+	
+	By simiular arguments we can see that 
+	
+	\begin{equation*}
+	LV(I_p) = \left[-\frac{1}{I_p^2}+\frac{1}{(N-I_p)^2}\right]\left[b L_p -r_2I_p\right]+\frac{1}{2}\left[\frac{2}{I_p^3}+\frac{1}{(N-I_p)^3}\right]\sigma_I I_p^2.
+	\end{equation*}
+	
+	And we can see that
+	
+	\begin{equation*}
+	LV(I_p) \leq \frac{b N_p}{N_p-I_p}+\frac{r_2}{I_p}+\sigma_I^2\left[\frac{1}{I_p}+\frac{1}{N_p-I_p}\right]\leq C_2 V(I_p),
+	\end{equation*}
+	
+	where $C_2 = (b N_p)\vee (r_2)+\sigma_I^2$. Sustituting this into (\ref{Positive2}), we get 
+	
+	\begin{align*}
+	\E V(I_p(t\wedge\tau_k)) 
+	&\leq 
+	V(I_{p_0})+ \E \int_{0}^{t\wedge \tau_k} C_2V(I_p(s))ds\\
+	&\leq 
+	V(I_{p_0})+C_2\int_{0}^{t}\E V(I_p(s\wedge \tau_k))ds.
+	\end{align*}
+	
+	The Gronwall inequality yields that
+	
+	\begin{equation}\label{Positive4}
+	\E V(I_p(T\wedge \tau_k))\leq V(I_{p_0})e^{C_2 T}
+	\end{equation}
+	
+	And the last argument for $I_v$, we obtain the following
+	
+	
+	\begin{equation*}
+		LV(I_v) = \left[-\frac{1}{I_v^2}+\frac{1}{(N-I_v)^2}\right]\left[\beta_vS_v\frac{I_p}{N_p}-\gamma I_v+\theta\mu\right]+\frac{1}{2}\left[\frac{2}{I_p^3}+\frac{1}{(N-I_p)^3}\right]\sigma_I I_v^2.
+	\end{equation*}
+	
+	And we can see that
+	
+	\begin{equation*}
+		LV(I_v) \leq \frac{\beta_v N_v+\theta\mu}{N_p-I_v}+\frac{ \gamma}{I_v}+\sigma_v^2\left[\frac{1}{I_v}+\frac{1}{N_p-I_v}\right]\leq C_3 V(I_v),
+	\end{equation*}
+	
+	where $C_3 := (\beta_v N_v+\theta \mu)\vee (\gamma)+\sigma_v^2$. Sustituting this into (\ref{Positive2}), we get 
+	
+	\begin{align*}
+		\E V(I_v(t\wedge\tau_k))
+		&\leq 
+		V(I_{v_0})+ \E \int_{0}^{t\wedge \tau_k} C_3V(I_v(s))ds\\
+		&\leq 
+		V(I_{v_0})+C_3\int_{0}^{t}\E V(I_v(s\wedge \tau_k))ds.
+	\end{align*}
+	
+	The Gronwall inequality yields that
+	
+	\begin{equation}\label{Positive5}
+		\E V(I_v(T\wedge \tau_k))\leq V(I_{v_0})e^{C_3 T}
+	\end{equation}
+	
+	Set $\Omega_k =\{\tau_k\leq T\}$ for $k\geq k_1$ and, by (\ref{Positive1}), $\P (\Omega_k)\geq \epsilon$. Note that, for every $\omega\in \Omega_k$,
+	$L_p(\tau_k,\omega),I_p(\tau_k,\omega),I_v(\tau_k,\omega)$ equals either $\frac{1}{k}$ or $N-\frac{1}{k}$, and hence
+	
+	\begin{align*}
+		V(L_p(\tau_k,\omega))&\geq k,\\
+		V(I_p(\tau_k,\omega))&\geq k,\\
+		V(I_v(\tau_k,\omega))&\geq k.
+	\end{align*}
+	
+	It follows from (\ref{Positive3}),(\ref{Positive4}),(\ref{Positive5}), that
+	
+	\begin{align*}
+		V(L_{p_0})e^{C_1 T} 
+			&\geq 
+				\E \left[I_{\{\Omega_k\}}(\omega)V(L_p(\tau_k,\omega))\right]\geq k\P (\Omega_k)\geq \epsilon k,\\
+		V(I_{p_0})e^{C_2 T} 
+			&\geq 
+				\E\left[I_{\{\Omega_k\}}(\omega)V(I_p(\tau_k,\omega))\right]\geq k\P (\Omega_k)\geq \epsilon k,\\
+		V(I_{v_0})e^{C_3 T} 
+			&\geq 
+				\E\left[I_{\{\Omega_k\}}(\omega)V(I_v(\tau_k,\omega))\right]\geq k\P (\Omega_k)\geq \epsilon k.
+	\end{align*}
+	
+	Letting $k\rightarrow \infty$ leads to the contradiction
+	
+	\begin{align*}
+		\infty &>V(L_{p_0})e^{C_1 T}= \infty, \\
+		\infty &>V(I_{p_0})e^{C_2 T}= \infty, \\
+		\infty &>V(L_{v_0})e^{C_3 T}= \infty 
+	\end{align*}
+	so we must therefore have $\tau_\infty=\infty$ a.s., whence the proof is complete.
 \end{proof}

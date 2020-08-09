@@ -15,21 +15,51 @@ vectors die or depart per
 day,
 immigration from
 alternative hosts.
+\begin{equation}\label{system_1}
+	\begin{aligned}
+		\dot{S_p} &=
+			-\beta_p S_p \frac{I_v}{N_v} + \tilde{r_1} L_p + \tilde{r_2} I_p \\
+		\dot{L_p} &=
+			\beta_p S_p \frac{I_v}{N_v} - b L_p - \tilde{r_1} L_p \\
+		\dot{I_p} &=
+			b L_p - \tilde{r_2} I_p \\
+		\dot{S_v} &=
+			-\beta_v S_v \frac{I_p}{N_p} -\tilde{\gamma} S_v +(1-\theta) \mu \\
+		\dot{I_v} &=
+			\beta_v S_v \frac{I_p}{N_p} -\tilde{\gamma} I_v + \theta \mu
+	\end{aligned}
+\end{equation}
 
-\begin{align}\label{system_1}
-	\dot{S_p} &=
-		-\beta_p S_p \frac{I_v}{N_v} + \tilde{r_1} L_p + \tilde{r_2} I_p \\
-	\dot{L_p} &=
-		\beta_p S_p \frac{I_v}{N_v} - b L_p - \tilde{r_1} L_p \\
-	\dot{I_p} &=
-		b L_p - \tilde{r_2} I_p \\
-	\dot{S_v} &=
-		-\beta_v S_v \frac{I_p}{N_p} -\tilde{\gamma} S_v +(1-\theta) \mu \\
-	\dot{I_v} &=
-		\beta_v S_v \frac{I_p}{N_p} -\tilde{\gamma} I_v + \theta \mu
-\end{align}
+where
+\begin{center}
+	\begin{tabular}{|c |c |l |} 
+		\hline
+		Par. & Unit & description \\ [0.5ex] 
+		\hline
+		$\beta_p$ & vector$^{-1}$day$^{-1}$ & infection rate of susceptible plants by infected vectors \\ 
+		\hline
+		$r_1,r_2$ & day$^{-1}$ & replanting rate of latent and infected plants, respectively. \\
+		\hline
+		$b$ & day$^{-1}$ & latency rate, plant latent becomes infectious \\
+		\hline
+		$\gamma$ & day$^{-1}$ & vector death rate \\
+		\hline
+		$\mu$ & plant$^{-1}$day$^{-1}$ & vector migration rates from alternative plants to crop\\
+		\hline
+		$\theta$ & proportion & vector migration rate\\
+		\hline
+		$\beta_v$ & plant$^{-1}$day$^{-1}$ & infection rate of susceptible vectors by an infected plant\\ 
+		\hline
+	\end{tabular}
+\end{center}
 
-donde $\beta_p$: tasa de infecci\'on de las plantas susceptibles mediante un vector infectado. $r_1$: tasa de replanteo de plantas latentes. $r_2$: tasa de replanteo de plantas infecciosas. $b$: tasa de latencia (planta latente se convierte en infecciosa). $\beta_v$: tasa de infecci\'on de los vectores susceptibles mediante una planta infectada. $\gamma$: tasa de muerte o alejamiento de los vectores, $\mu$: migraci\'on de los vectores de plantas hospederas alternas, $\theta$: proporci\'on de migraci\'on de los vectores.
+And the plant population satisfies
+
+\begin{equation*}
+	\dot{N_p} = \dot{S_p}+\dot{L_p}+\dot{I_p}=0,
+\end{equation*}
+
+this implies that $N_p(t)$ is contant for all $t\geq 0$, namely $N_p$. In the case of the population of vectors we do not have a constant population, but it satisfies the following property
 
 \begin{theorem}\label{theorem_1}
 	With the same notation of SDE (\ref{system_1}), let
@@ -49,66 +79,68 @@ We first going to adimensionality the system (\ref{system_1}), with the followin
 \end{equation*}
 
 Then, the system (\ref{system_1}) becomes
+\begin{equation}\label{system_2}
+	\begin{aligned}
+	\dot{x} &=
+		-\beta_p x w + \tilde{r_1} y + \tilde{r_2} z \\
+	\dot{y} &=
+		\beta_p x w - (b + \tilde{r_1}) y \\
+	\dot{z} &=
+		b y - \tilde{r_2} z \\
+	\dot{v} &=
+		-\beta_v v z  +(1-\theta-v)\frac{\mu}{N_v} \\
+	\dot{w} &=
+		\beta_v v z + (\theta-w) \frac{\mu}{N_v}
+	\end{aligned}
+\end{equation}
 
-\begin{align}\label{system_2}
-\dot{x} &=
--\beta_p x w + \tilde{r_1} y + \tilde{r_2} z \\
-\dot{y} &=
-\beta_p x w - (b + \tilde{r_1}) y \\
-\dot{z} &=
-b y - \tilde{r_2} z \\
-\dot{v} &=
--\beta_v v z  +(1-\theta-v)\frac{\mu}{N_v} \\
-\dot{w} &=
-\beta_v v z + (\theta-w) \frac{\mu}{N_v}
-\end{align}
-
-
-Folowwing [referencia], we are interested in a model where the replanting rate of plants, and died rate of vector, $r_1$, $r_2$ and $\gamma$ are now a random variables. This could be doubt to some stochastic environmental factor acts simultaneously on each plant in the crop. More precisely each replanting, died rate, makes
+Following [referencia], we are interested in a model where the replanting rate of plants, and died rate of vector, $r_1$, $r_2$ and $\gamma$ are now a random variables. This could be doubt to some stochastic environmental factor acts simultaneously on each plant in the crop. More precisely each replanting, died rate, makes
 
 \begin{equation}\label{eq1}
-	\tilde{r}_1 dt = r_1 dt+\sigma_LdB(t),
+	\tilde{r}_1 dt = r_1 dt+\sigma_LdB_p(t),
 \end{equation}
 
 \begin{equation}\label{eq2}
-\tilde{r}_2 dt = r_2 dt+\sigma_IdB(t),
+\tilde{r}_2 dt = r_2 dt+\sigma_IdB_p(t),
 \end{equation}
 
 \begin{equation}\label{eq3}
-\tilde{\gamma} dt = \gamma dt+\sigma_vdB(t),
+\tilde{\gamma} dt = \gamma dt+\sigma_vdB_v(t),
 \end{equation}
 
-potentially replanting, and vector death  in $[t, t + dt)$. Here $dB(t) =B(t+dt)-B(t)$is the increment of a standard Wiener process or Brownian motion. Note that $\tilde{r}_1$,$\tilde{r}_2$,$\tilde{\gamma}$ are just a random perturbations of $r_1$,$r_2$,$\gamma$, with $\mathbb{E}(\tilde{r}_1dt) = r_1dt$ and $Var(\tilde{r}_1dt) = \sigma_L^2dt$, $\mathbb{E}(\tilde{r}_2dt) = r_2dt$ and $Var(\tilde{r}_2dt) = \sigma_I^2dt$ and $\mathbb{E}(\tilde{\gamma}dt) = \gamma dt$ and $Var(\tilde{\gamma}dt) = \sigma_v^2dt$.
+potentially replanting, and vector death  in $[t, t + dt)$. Here $dB(t) =B(t+dt)-B(t)$is the increment of a standard Wiener process or Brownian motion. Note that $\tilde{r}_1$,$\tilde{r}_2$,$\tilde{\gamma}$ are just a random perturbations of $r_1$,$r_2$,$\gamma$, with $\EX{\tilde{r}_1dt} = r_1dt$ and $\VarX{\tilde{r}_1dt} = \sigma_L^2dt$, $\EX{\tilde{r}_2dt} = r_2dt$ and $\VarX{\tilde{r}_2dt} = \sigma_I^2dt$ and $\EX{\tilde{\gamma}dt} = \gamma dt$ and $\VarX{\tilde{\gamma}dt} = \sigma_v^2dt$.
 
 Thus, the stochastic tomato model is given by the following system of coupled Ito's SDE's
 
-\begin{align}\label{system_3}
-	d S_p &=
-		\left(-\beta_p S_p \frac{I_v}{N_v} + r_1 L_p + r_2 I_p\right)dt + (\sigma_L L_p + \sigma_I I_p)dB(t) \\
-	dL_p &=
-		\left(\beta_p S_p \frac{I_v}{N_v} - b L_p - r_1 L_p\right)dt - \sigma_L L_p dB(t) \\
-	d I_p &=
-		\left(b L_p - r_2 I_p\right)dt -\sigma_I I_p dB(t) \\
-	dS_v &=
-		\left(-\beta_v S_v \frac{I_p}{N_p} -\gamma S_v +(1-\theta) \mu\right)dt - \sigma_v S_v dB(t) \\
-	d I_v &=
-		\left(\beta_v S_v \frac{I_p}{N_p} -\gamma I_v + \theta \mu\right)dt - \sigma_v I_v dB(t)
-\end{align}
-
+\begin{equation}\label{system_3}
+	\begin{aligned}
+		d S_p &=
+			\left(-\beta_p S_p \frac{I_v}{N_v} + r_1 L_p + r_2 I_p\right)dt + (\sigma_L L_p + \sigma_I I_p)dB_p(t) \\
+		dL_p &=
+			\left(\beta_p S_p \frac{I_v}{N_v} - b L_p - r_1 L_p\right)dt - \sigma_L L_p dB_p(t) \\
+		d I_p &=
+			\left(b L_p - r_2 I_p\right)dt -\sigma_I I_p dB_p(t) \\
+		dS_v &=
+			\left(-\beta_v S_v \frac{I_p}{N_p} -\gamma S_v +(1-\theta) \mu\right)dt - \sigma_v S_v dB_v(t) \\
+		d I_v &=
+			\left(\beta_v S_v \frac{I_p}{N_p} -\gamma I_v + \theta \mu\right)dt - \sigma_v I_v dB_v(t)
+	\end{aligned}
+\end{equation}
 and the corresponding change of variable, the system (\ref{system_3}) can be reewriting as
-
-\begin{align}\label{system_4}
-	d x(t) &=
-		(-\beta_p x w + r_1 y + r_2 z)dt +(\sigma_L y + \sigma_I z)dB(t) \\
-	dy(t) &=
-		(\beta_p x w - (b + r_1) y)dt - \sigma_L y dB(t)\\
-	dz(t) &=
-		(b y - r_2 z)dt -\sigma_I z dB(t)\\
-	dv(t) &=
-		\left(-\beta_v v z  +(1-\theta-v)\frac{\mu}{N_v}\right)dt \\
-	dw(t) &=
-		\left(\beta_v v z + (\theta-w) \frac{\mu}{N_v}\right)dt
-\end{align}
+\begin{equation}\label{system_4}
+	\begin{aligned}
+		d x(t) &=
+			(-\beta_p x w + r_1 y + r_2 z)dt +(\sigma_L y + \sigma_I z)dB_p(t) \\
+		dy(t) &=
+			(\beta_p x w - (b + r_1) y)dt - \sigma_L y dB_p(t)\\
+		dz(t) &=
+			(b y - r_2 z)dt -\sigma_I z dB_p(t)\\
+		dv(t) &=
+			\left(-\beta_v v z  +(1-\theta-v)\frac{\mu}{N_v}\right)dt \\
+		dw(t) &=
+			\left(\beta_v v z + (\theta-w) \frac{\mu}{N_v}\right)dt
+	\end{aligned}
+\end{equation}
 
 
 
